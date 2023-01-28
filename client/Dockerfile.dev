@@ -1,0 +1,20 @@
+# Загружаем образ Node из Docker Hub
+FROM node:14-slim
+
+# Устанавливаем рабочую директорию
+WORKDIR /usr/app
+
+# Копируем только package.json
+COPY package*.json ./
+
+# Устанавливаем зависимости
+RUN npm install
+
+# Скопируем остальную часть кода в контейнер
+COPY . .
+
+# Запускаем на порту 3000
+EXPOSE 3000
+
+# Запускаем клиент
+CMD ["npm", "run", "start"]

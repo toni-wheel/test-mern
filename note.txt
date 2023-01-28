@@ -1,0 +1,64 @@
+Ставим конкретную задачу и описываем ее решение.
+
+Фронтент      ➝   http://23.111.121.171:3000/
+Бэкенд        ➝   http://23.111.121.171:5000/
+База данных   ➝   http://23.111.121.171:27017/
+
+--------------------
+
+Задача №1
+
+Необходимо:
+
+Запустить стек MERN в Docker Compose
+
+Решение:
+
+Управление контейнерами
+
+$ docker stop $(docker ps -qa) && docker rm $(docker ps -qa) && docker rmi -f $(docker images -qa ) && docker volume rm $(docker volume ls -q) && docker network rm $(docker network ls -q)
+
+$ docker-compose down -v
+$ docker-compose up -d
+$ docker ps -a
+
+--------------------
+
+Задача №2
+
+Необходимо:
+
+При регистрации создать два дополнительных поля:
+
+1. Имя пользователя
+2. Статус (админ или пользователь)
+
+Пользователь может просматривать только свои данные (имя, email и статус)
+Админ может просматривать данные всех пользователей
+
+Решение:
+
+Основы MongoDB
+
+Документоориентированная СУБД. Для хранения данных используется JSON.
+База данных -> Коллекция -> Документ -> {"key": "value"}
+
+Подключение к MongoDB
+
+$ docker exec -it test-db /bin/bash
+$ mongo
+
+Работа с MongoDB
+
+$ show databases
+$ show dbs
+$ use test_db
+$ db.createCollection("user")
+$ show collections
+$ db.dropDatabase()
+$ db.users.insert({
+    email: "user@mail.ru",
+    password: "qwerty123456"
+})
+
+$ db.users.find().pretty();
