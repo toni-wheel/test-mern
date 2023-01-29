@@ -3,6 +3,7 @@ import useAuth from "../hooks/auth.hook";
 import AuthContext from "../context/AuthContext";
 import useHttp from "../hooks/https.hook";
 import UsersList from "../components/users-list/UsersList";
+import logo from "../image/time.png";
 
 const HomePage = () => {
   const [user, setUser] = useState({
@@ -43,19 +44,47 @@ const HomePage = () => {
 
   return (
     <>
-      {/* <div className="info__name">Приветствую, {user.name}</div>
-              <div className="info__status">Ваш статус: {user.status}</div>
-              <div className="info__email">Ваш email: {user.email}</div>
-              <div className="info__id">Ваш id: {user._id}</div>
-              <div className="info__users">
-                <UsersList users={users} />
-              </div>
-            </div>
-            <div className="form__btn-box btn-box">
-              <button type="submit" id="sign_out" onClick={logoutHandler}>
-                Выйти
-              </button>
-              </div> */}
+      <div className="admin">
+        <div className="admin__menu">
+          <a href="#" className="admin__logo">
+            <img src={logo} alt="Logo" />
+            <h1>Time track</h1>
+          </a>
+          <ul className="admin__list">
+            <li>
+              <a href="#">Главная</a>
+            </li>
+            <li>
+              <a href="#">Работники</a>
+            </li>
+            <li>
+              <a href="#">Объекты</a>
+            </li>
+          </ul>
+          <ul className="admin__list">
+            <li>
+              <a href="#">Настройки</a>
+            </li>
+            <li>
+              <a href="#">Помощь</a>
+            </li>
+            <li>
+              <a href="#" onClick={logoutHandler}>
+                Выход
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="admin__content">
+          <div className="admin__hello">Добро пожаловать, {user.name}</div>
+          <div className="admin__status">Ваш статус: {user.status}</div>
+          <div className="admin__email">Ваш email: {user.email}</div>
+          <div className="admin__id">Ваш id: {user._id}</div>
+          <div className="info__users">
+            <UsersList users={users} />
+          </div>
+        </div>
+      </div>
     </>
   );
 };

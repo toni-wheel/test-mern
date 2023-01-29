@@ -4,6 +4,7 @@
     - The "symbol *" part is to solve Firefox SVG sprite bug
  */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
   all: unset;
   display: revert;
@@ -247,4 +248,95 @@ body {
 .auth {
   background: -o-linear-gradient(45deg, #6a85b6, #bac8e0);
   background: linear-gradient(45deg, #6a85b6, #bac8e0);
+}
+
+.admin {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f6fb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.admin__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 240px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #343951;
+  -webkit-box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+          box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+  color: #fff;
+}
+.admin__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.admin__logo > h1 {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  font-family: "Rubik", sans-serif;
+  font-weight: bold;
+}
+.admin__logo > img {
+  width: 40px;
+  margin-right: 10px;
+}
+.admin__list:last-child {
+  margin-top: auto;
+  margin-bottom: 50px;
+}
+.admin__list > li > a {
+  padding-left: 30px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 45px;
+  text-decoration: none;
+}
+.admin__list > li > a::before {
+  content: "";
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background-color: #ffa000;
+}
+.admin__list > li > a:hover::before {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.admin__list > li > a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.admin__content {
+  padding-left: 280px;
+  padding-top: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
 }
